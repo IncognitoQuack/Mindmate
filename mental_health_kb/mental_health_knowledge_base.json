@@ -1,0 +1,182 @@
+[
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["negative thoughts", "cbt", "thinking errors"],
+    "text": "All-or-Nothing Thinking, also known as black-and-white thinking, is seeing things in absolute terms. If a situation falls short of perfect, you see it as a total failure. For example, if you get anything less than an A+ on an exam, you might conclude 'I'm a complete failure.' This binary view of the world is unrealistic because life is rarely completely one way or the other."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["anxiety", "cbt", "generalization"],
+    "text": "Overgeneralization is seeing a single negative event as a never-ending pattern of defeat. You might use words like 'always' or 'never' when you overgeneralize. For instance, if you get rejected for a date, you might think, 'I'm always getting rejected. I'll never find a partner.' This distortion takes one piece of evidence and incorrectly applies it to all areas of life."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["depression", "cbt", "perspective"],
+    "text": "Mental Filter is when you pick out a single negative detail and dwell on it exclusively, so that your vision of all reality becomes darkened. It's like a drop of ink that discolors an entire beaker of water. For example, you might receive many positive comments on a presentation but focus only on one minor critical remark, ignoring all the praise and concluding the presentation was a disaster."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["positive thinking", "cbt", "invalidation"],
+    "text": "Disqualifying the Positive is a particularly potent form of mental filter. It's not just ignoring positive experiences; you actively reject them by insisting they 'don't count' for some reason. If you do a good job, you might tell yourself that it wasn't good enough or that anyone could have done it. This is a destructive habit that can maintain a negative belief system despite evidence to the contrary."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["anxiety", "cbt", "assumptions"],
+    "text": "Jumping to Conclusions involves making a negative interpretation even though there are no definite facts to support your conclusion. One form is 'Mind Reading,' where you arbitrarily conclude that someone is reacting negatively to you without checking it out. Another form is 'The Fortune Teller Error,' where you anticipate that things will turn out badly and feel convinced that your prediction is an already-established fact."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["anxiety", "cbt", "catastrophizing"],
+    "text": "Magnification (Catastrophizing) or Minimization is when you exaggerate the importance of your problems and shortcomings, or you minimize the importance of your desirable qualities. This is also called the 'binocular trick.' For example, you might make a small mistake and think, 'This is a catastrophe! Everything is ruined!' Or, you might achieve something significant and think, 'Oh, it was nothing important.'"
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["emotions", "cbt", "reasoning"],
+    "text": "Emotional Reasoning is assuming that your negative emotions necessarily reflect the way things really are. The logic is: 'I feel it, therefore it must be true.' For example, 'I feel so anxious, so something terrible must be about to happen.' This distortion can be misleading because feelings are not facts; they are subjective responses to our thoughts."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["guilt", "cbt", "should statements"],
+    "text": "Should Statements are when you try to motivate yourself with 'shoulds' and 'shouldn'ts,' as if you had to be whipped and punished before you could be expected to do anything. When directed at yourself, they can lead to guilt and frustration. When directed at others, they can lead to anger and resentment. Consider replacing 'should' with 'could' to see things as a choice rather than a command."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["self-esteem", "cbt", "labeling"],
+    "text": "Labeling and Mislabeling is an extreme form of overgeneralization. Instead of describing your error, you attach a negative label to yourself: 'I'm a loser.' When someone else's behavior rubs you the wrong way, you may attach a negative label to them: 'He's a jerk.' Mislabeling involves describing an event with language that is highly colored and emotionally loaded."
+  },
+  {
+    "source": "Feeling Good by David D. Burns",
+    "category": "Cognitive Distortion",
+    "tags": ["guilt", "cbt", "responsibility"],
+    "text": "Personalization is seeing yourself as the cause of some negative external event which, in fact, you were not primarily responsible for. For example, if a child is struggling in school, a parent might conclude, 'This is all my fault. I'm a bad parent,' without considering all the other factors that could be at play."
+  },
+  {
+    "source": "Mind Over Mood by Greenberger & Padesky",
+    "category": "CBT Technique",
+    "tags": ["cbt", "negative thoughts", "journaling"],
+    "text": "A Thought Record is a structured tool for analyzing and challenging negative automatic thoughts. It typically has several columns: 1. Situation: Describe the event that led to the unpleasant emotion. 2. Moods: Write down your feelings and rate their intensity (0-100%). 3. Automatic Thoughts: List the thoughts that came to mind. 4. Evidence That Supports the Hot Thought: List facts that support your thought. 5. Evidence That Does Not Support the Hot Thought: List facts that contradict your thought. 6. Alternative/Balanced Thoughts: Write a new thought that is more balanced and realistic. 7. Re-rate Mood: Rate the intensity of your moods now."
+  },
+  {
+    "source": "Mind Over Mood by Greenberger & Padesky",
+    "category": "CBT Technique",
+    "tags": ["depression", "cbt", "motivation", "behavior"],
+    "text": "Behavioral Activation is a technique used to combat depression and low motivation. It's based on the idea that as people become depressed, they tend to avoid activities they once enjoyed, which increases their depression. The technique involves scheduling activities, especially those that provide a sense of pleasure or mastery, back into your day, even if you don't feel like doing them. The action comes first, and the motivation often follows."
+  },
+  {
+    "source": "Mind Over Mood by Greenberger & Padesky",
+    "category": "Core Belief Concept",
+    "tags": ["cbt", "self-esteem", "core beliefs"],
+    "text": "Core Beliefs are the fundamental, deeply ingrained beliefs we have about ourselves, others, and the world. They act like a lens through which we interpret all our experiences. Negative core beliefs often fall into categories like 'Helplessness' (e.g., 'I am weak,' 'I am a failure'), 'Unlovability' (e.g., 'I am unlovable,' 'I will be rejected'), or 'Worthlessness' (e.g., 'I am worthless,' 'I am bad'). Identifying and challenging these beliefs is a key part of CBT."
+  },
+  {
+    "source": "Wherever You Go, There You Are by Jon Kabat-Zinn",
+    "category": "Mindfulness Exercise",
+    "tags": ["mindfulness", "meditation", "anxiety", "breathing"],
+    "text": "Mindful Breathing is a foundational mindfulness practice. Find a comfortable seated position. Gently close your eyes or lower your gaze. Bring your attention to the physical sensation of your breath—the air moving in through your nostrils, the rise and fall of your chest and belly. Don't try to change your breathing in any way; just observe it. When your mind wanders, as it naturally will, gently and without judgment, guide your attention back to your breath. This is an exercise in being present."
+  },
+  {
+    "source": "Wherever You Go, There You Are by Jon Kabat-Zinn",
+    "category": "Mindfulness Exercise",
+    "tags": ["mindfulness", "meditation", "body awareness"],
+    "text": "The Body Scan Meditation involves paying close, non-judgmental attention to different parts of your body in sequence. Lying on your back, you bring your focus to the toes of your left foot, noticing any sensations like tingling, warmth, or contact with the floor. You then slowly move your attention up through your foot, ankle, calf, and so on, through your entire body. The goal is not to feel anything special, but simply to be aware of the sensations that are present."
+  },
+  {
+    "source": "Wherever You Go, There You Are by Jon Kabat-Zinn",
+    "category": "Mindfulness Concept",
+    "tags": ["mindfulness", "acceptance", "non-judgment"],
+    "text": "Non-Judgmental Awareness is a core component of mindfulness. It means observing your thoughts, feelings, and bodily sensations as they are, without labeling them as 'good' or 'bad,' 'right' or 'wrong.' It's about taking on the role of an impartial witness to your own experience. This practice helps to reduce the habit of self-criticism and allows you to see your thoughts as just 'thoughts,' not necessarily as facts."
+  },
+  {
+    "source": "Radical Acceptance by Tara Brach",
+    "category": "Mindfulness Technique",
+    "tags": ["mindfulness", "self-compassion", "emotions", "acceptance"],
+    "text": "The RAIN of Self-Compassion is a practice for working with difficult emotions. It's an acronym: R - Recognize what is happening. A - Allow the experience to be there, just as it is. I - Investigate with interest and care, asking what the feeling wants from you. N - Nurture with self-compassion, offering yourself kindness and understanding. This process helps you to stop fighting with your feelings and instead meet them with a gentle, caring presence."
+  },
+  {
+    "source": "Radical Acceptance by Tara Brach",
+    "category": "Mindfulness Concept",
+    "tags": ["mindfulness", "self-esteem", "acceptance"],
+    "text": "Radical Acceptance means clearly seeing what is happening in the present moment and allowing it to be as it is, without trying to change, fix, or resist it. It does not mean you approve of a negative situation or are passive about it. Rather, it is the necessary first step to acting wisely. You cannot change what you do not first accept. It is saying 'yes' to the reality of this moment."
+  },
+  {
+    "source": "Man's Search for Meaning by Viktor Frankl",
+    "category": "Existential Concept",
+    "tags": ["purpose", "meaning", "resilience", "logotherapy"],
+    "text": "Logotherapy, developed by Viktor Frankl, is founded on the belief that the primary motivational force in human beings is a 'will to meaning.' It suggests that even in the most miserable of circumstances, life can have meaning, and it is this sense of meaning that gives us the will to continue. Meaning can be found in three ways: by creating a work or doing a deed; by experiencing something or encountering someone; and by the attitude we take toward unavoidable suffering."
+  },
+  {
+    "source": "Man's Search for Meaning by Viktor Frankl",
+    "category": "Existential Concept",
+    "tags": ["resilience", "choice", "perspective"],
+    "text": "A core insight from Viktor Frankl is that 'Everything can be taken from a man but one thing: the last of the human freedoms—to choose one’s attitude in any given set of circumstances, to choose one’s own way.' This highlights that while we may not have control over external events, we always retain the inner power to choose how we respond to them. Our perspective is our ultimate freedom."
+  },
+  {
+    "source": "Atomic Habits by James Clear",
+    "category": "Habit Formation",
+    "tags": ["habits", "behavior change", "motivation"],
+    "text": "The Four Laws of Behavior Change provide a framework for creating good habits and breaking bad ones. To create a good habit, make it: 1. Obvious (e.g., put your running shoes by the door). 2. Attractive (e.g., pair it with something you enjoy, like listening to a podcast while you run). 3. Easy (e.g., start with just a 5-minute run). 4. Satisfying (e.g., track your progress and celebrate small wins). To break a bad habit, you invert these laws: make it invisible, unattractive, difficult, and unsatisfying."
+  },
+  {
+    "source": "Atomic Habits by James Clear",
+    "category": "Habit Formation",
+    "tags": ["habits", "identity", "self-improvement"],
+    "text": "Identity-Based Habits are more powerful than outcome-based habits. Instead of focusing on what you want to achieve (e.g., 'I want to lose 20 pounds'), you focus on who you wish to become (e.g., 'I am a healthy person'). The goal is not to run a marathon; the goal is to become a runner. Each time you perform the habit, you are casting a vote for that identity. This shifts the focus from a temporary goal to a long-term change in who you are."
+  },
+  {
+    "source": "General Therapeutic Concepts",
+    "category": "Communication Skill",
+    "tags": ["communication", "relationships", "empathy"],
+    "text": "Active Listening is a communication technique that involves more than just hearing the words someone says. It means being fully present and concentrating on what is being said. It includes reflective listening, where you paraphrase what you heard to confirm your understanding (e.g., 'It sounds like you're saying...'), and asking clarifying questions. This makes the speaker feel heard and validated."
+  },
+  {
+    "source": "General Therapeutic Concepts",
+    "category": "Emotional Regulation",
+    "tags": ["emotions", "validation", "self-compassion"],
+    "text": "Validation is the act of acknowledging and accepting another person's feelings, thoughts, and experiences as being true and real for them. It doesn't mean you have to agree with them. You can validate someone's feelings by saying things like, 'That sounds incredibly difficult,' or 'I can understand why you would feel that way.' Self-validation is just as important—acknowledging that your own feelings are valid and make sense given your experience."
+  },
+  {
+    "source": "General Therapeutic Concepts",
+    "category": "Relationship Skill",
+    "tags": ["boundaries", "relationships", "self-care"],
+    "text": "Setting Boundaries is about defining what you are comfortable with and what you are not, and communicating that to others. Healthy boundaries are essential for self-respect and for maintaining healthy relationships. They can be physical, emotional, or mental. Setting a boundary can be as simple as saying 'no' to a request you don't have the time or energy for, or telling someone you are not comfortable discussing a certain topic."
+  },
+  {
+    "source": "General Therapeutic Concepts",
+    "category": "Emotional Regulation",
+    "tags": ["anxiety", "grounding", "stress"],
+    "text": "The 5-4-3-2-1 Grounding Technique is a simple but powerful tool to use during moments of high anxiety or panic. It helps to bring your focus back to the present moment by engaging your senses. You identify: 5 things you can see, 4 things you can feel (like the chair beneath you or the texture of your clothes), 3 things you can hear, 2 things you can smell, and 1 thing you can taste. This pulls your mind away from the anxious thoughts and into your immediate environment."
+  },
+  {
+    "source": "General Therapeutic Concepts",
+    "category": "Self-Care",
+    "tags": ["self-care", "burnout", "well-being"],
+    "text": "Self-Care is any intentional action you take to care for your physical, mental, and emotional health. It is not selfish; it is a necessary practice for maintaining well-being and preventing burnout. Self-care looks different for everyone. It can include getting enough sleep, eating nutritious food, engaging in hobbies, spending time in nature, setting boundaries, or practicing mindfulness. It's about proactively tending to your needs."
+  },
+  {
+    "source": "Positive Psychology",
+    "category": "Well-being Concept",
+    "tags": ["gratitude", "happiness", "positive psychology"],
+    "text": "A Gratitude Practice involves regularly taking time to notice and reflect upon the things you are thankful for. This can shift your focus from what is wrong in your life to what is good. A simple way to practice this is by keeping a gratitude journal, where each day you write down three to five things you are grateful for, no matter how small. Research shows this practice can improve mood, reduce stress, and increase overall happiness."
+  },
+  {
+    "source": "Acceptance and Commitment Therapy (ACT)",
+    "category": "ACT Technique",
+    "tags": ["act", "thoughts", "acceptance", "defusion"],
+    "text": "Cognitive Defusion is a technique from Acceptance and Commitment Therapy (ACT) that helps you to detach from your thoughts. Instead of being 'fused' with a thought (believing it is an absolute truth), you learn to see it as just a thought—a string of words or images your mind has produced. You can practice this by saying 'I'm having the thought that...' before stating the negative thought. For example, instead of 'I'm a failure,' you would say, 'I'm having the thought that I'm a failure.' This creates distance and reduces the thought's power."
+  },
+  {
+    "source": "General Therapeutic Concepts",
+    "category": "Emotional Regulation",
+    "tags": ["emotions", "window of tolerance", "stress"],
+    "text": "The 'Window of Tolerance' is a term for the optimal zone of arousal where a person is able to function most effectively. When you're in this window, you can manage your emotions and handle the stresses of life without becoming overwhelmed. When you're pushed outside the window, you might become hyper-aroused (anxious, angry, overwhelmed) or hypo-aroused (numb, zoned out, disconnected). Therapeutic techniques often aim to widen this window and help you return to it when you're pushed out."
+  }
+]
