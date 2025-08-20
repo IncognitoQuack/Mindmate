@@ -21,7 +21,17 @@ In an era where accessible mental health support is crucial, Mindmate serves as 
 
 ---
 
-<!-- For a professional touch, replace this comment with a high-quality screenshot of the application's dashboard and chat interface. -->
+## Problem Statement
+
+Mental health challenges among students and professionals are actively rising, yet access to timely, affordable, open, and inclusive support remains limited.  
+Traditional counseling services are often constrained by high costs, limited availability, and social stigma—leaving many without consistent emotional support.  
+
+At the same time, existing digital learning platforms lack integrated wellness features that can monitor emotional well-being daily, encourage positive habits, and provide real-time assistance.  
+
+There is a clear need for an accessible, secure, and empathetic digital companion that bridges this gap by offering personalized check-ins, actionable insights, and crisis-sensitive guidance—while ensuring user privacy is protected.
+
+---
+
 ![Mindmate Application Screenshot](https://github.com/IncognitoQuack/Mindmate/blob/main/demo.png) 
 
 ---
