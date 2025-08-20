@@ -22,7 +22,7 @@ In an era where accessible mental health support is crucial, Mindmate serves as 
 ---
 
 <!-- For a professional touch, replace this comment with a high-quality screenshot of the application's dashboard and chat interface. -->
-![Mindmate Application Screenshot](https://i.imgur.com/your-screenshot-url.png) 
+![Mindmate Application Screenshot]([https://i.imgur.com/your-screenshot-url.png](https://github.com/IncognitoQuack/Mindmate/blob/main/demo.png)) 
 
 ---
 
