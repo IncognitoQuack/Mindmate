@@ -1,4 +1,4 @@
-# main.py 
+# main.py - Professional Enhanced Version
 import streamlit as st
 import os
 import json
@@ -17,8 +17,10 @@ import logging
 from functools import lru_cache
 import time
 
+# --- Load Environment Variables ---
 load_dotenv()
 
+# --- Logging Configuration ---
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -222,7 +224,7 @@ st.markdown("""
     .stWarning {
         border-left-color: var(--warning-color);
         background: #3a2323;
-        color: var,--warning-color;
+        color: var(--warning-color);
     }
     .info-box {
         background: linear-gradient(135deg, #23283b 0%, #181c27 100%);
@@ -759,13 +761,6 @@ def create_mood_chart(messages: List[Dict]) -> go.Figure:
     
     return fig
 
-# --- Sidebar Toggle State ---
-if "sidebar_open" not in st.session_state:
-    st.session_state.sidebar_open = True
-
-def toggle_sidebar():
-    st.session_state.sidebar_open = not st.session_state.sidebar_open
-
 # --- UI Components ---
 def render_header():
     """Render clean professional header"""
@@ -887,9 +882,6 @@ def render_dashboard():
 def render_sidebar():
     """Render sidebar with secure API key management"""
     with st.sidebar:
-        if st.button("⬅️ Hide Sidebar", key="hide_sidebar"):
-            st.session_state.sidebar_open = False
-            st.experimental_rerun()
         st.markdown("### ⚙️ Configuration")
         
         # API Key Status (show status without revealing keys)
@@ -1080,49 +1072,8 @@ def main():
                 mime="text/plain"
             )
     
-    # Render sidebar only if open
-    if st.session_state.sidebar_open:
-        render_sidebar()
-    else:
-        # Floating button to reopen sidebar
-        st.markdown("""
-        <style>
-        .sidebar-fab {
-            position: fixed;
-            bottom: 32px;
-            left: 32px;
-            z-index: 9999;
-            background: #23283b;
-            color: #7f9cf5;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-            cursor: pointer;
-            border: 2px solid #7f9cf5;
-            font-size: 1.7rem;
-            transition: background 0.2s;
-        }
-        .sidebar-fab:hover {
-            background: #7f9cf5;
-            color: #181c27;
-        }
-        </style>
-        <div class="sidebar-fab" onclick="window.dispatchEvent(new Event('toggleSidebar'))" title="Open sidebar">☰</div>
-        <script>
-        const doc = window.parent.document;
-        window.addEventListener('toggleSidebar', () => {
-            const streamlitEvents = window.streamlitEvents || {};
-            streamlitEvents.toggleSidebar = (streamlitEvents.toggleSidebar || 0) + 1;
-            window.parent.postMessage({isStreamlitMessage: true, type: 'streamlit:setComponentValue', key: 'toggleSidebar', value: streamlitEvents.toggleSidebar}, '*');
-        });
-        </script>
-        """, unsafe_allow_html=True)
-        # Listen for JS event and update session state
-        st.experimental_data_editor({"toggleSidebar": 0}, key="sidebar_toggle", on_change=toggle_sidebar)
+    # Render sidebar
+    render_sidebar()
 
     # Watermark
     st.markdown("""
