@@ -1,43 +1,57 @@
-# Mindmate: An Advanced AI Mental Health Advisor
+# Mindmate: An Advanced AI Mental Health Companion
 
-**Mindmate** is a state-of-the-art conversational AI designed to provide a safe, empathetic, and adaptive space for individuals to explore their thoughts and feelings. Leveraging a multi-layered AI architecture, this project demonstrates a sophisticated approach to building responsible and helpful mental wellness tools.
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.37.0-red.svg?style=for-the-badge&logo=streamlit)](https://streamlit.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/status-active-success.svg?style=for-the-badge)]()
+
+**Mindmate** is a state-of-the-art conversational AI, engineered to provide a secure, empathetic, and adaptive space for individuals to explore their thoughts and feelings. By integrating a multi-layered AI architecture with a sophisticated, data-driven analytics dashboard, this project demonstrates a professional framework for building responsible and impactful mental wellness technology.
+
+---
+
+### ✨ **[View Live Demo](https://mindmate-5shyhgumxj6dqkczgmb3kt.streamlit.app/)** ✨
+
+---
+
+> **Note:** The live demo is hosted on a community cloud. Please allow a moment for the application to wake up if it's been idle.
 
 ## Introduction
 
-In an era where accessible mental health support is crucial, Mindmate serves as a proof-of-concept for an AI-powered companion. It is built on the principle of empathetic listening, providing users with a non-judgmental counterpart for self-reflection. The system is designed not to replace professional therapy, but to act as a supplementary tool that can help users identify patterns in their thoughts and learn about evidence-informed wellness concepts in a conversational context.
+In an era where accessible mental health support is crucial, Mindmate serves as an advanced prototype for an AI-powered companion. It is founded on the principle of empathetic listening, providing users with a non-judgmental counterpart for self-reflection. The system is architected not to replace professional therapy, but to act as a powerful supplementary tool. It empowers users to identify patterns in their thoughts, visualize their emotional journey, and learn about evidence-informed wellness concepts within a secure, intuitive, and highly responsive conversational interface.
 
-## Core Features
+---
 
-Mindmate integrates several advanced systems to create a responsive and insightful user experience:
+<!-- For a professional touch, replace this comment with a high-quality screenshot of the application's dashboard and chat interface. -->
+![Mindmate Application Screenshot](https://i.imgur.com/your-screenshot-url.png) 
 
-* **Conversational AI Core:** At its heart is a powerful large language model (`gemma-3`) fine-tuned with a carefully crafted system prompt that prioritizes empathy, open-ended questions, and non-prescriptive guidance.
-* **Retrieval-Augmented Generation (RAG):** The AI's responses are grounded in a curated knowledge base of therapeutic concepts from CBT, mindfulness, and positive psychology, ensuring the information provided is evidence-informed and relevant.
-* **Dynamic User Dashboard:** Mindmate can analyze the user's session journal to generate a comprehensive dashboard. This includes:
-    * **Sentiment Analysis:** An overall mood assessment of the conversation.
-    * **Thematic Identification:** Key topics and themes that emerge over time.
-    * **Actionable Recommendations:** Personalized, gentle suggestions with explanations on why they might be helpful.
-* **Intelligent Flagging System:** A two-tiered safety mechanism is in place:
-    1.  **Keyword Detection:** Immediately flags messages with high-risk crisis keywords.
-    2.  **AI-Powered Severity Scoring:** A dedicated classification model analyzes the nuance of user input to assess its severity, providing a warning and resources when necessary.
-* **Self-Improving System Prompt:** The application features a meta-analysis layer where a secondary AI model analyzes the conversation to provide a dynamic, one-time directive to the main chat model, helping it adapt its tone and approach based on the user's evolving needs.
+---
 
-## System Architecture
+## Key Innovations
 
-Mindmate employs a multi-model strategy to optimize performance and reliability:
+| Feature                        | Description                                                                                                                              |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 🧠 **Adaptive AI Core** | A dynamic system prompt that self-improves based on conversational flow, adapting the AI's tone and therapeutic approach in real-time.     |
+| 📊 **Advanced Analytics** | A comprehensive dashboard with live session metrics and an emotional journey chart, providing users with tangible, data-driven insights. |
+| 🔐 **Secure Session Management** | A professional-grade session manager handles API keys securely, ensuring user privacy and key protection without exposing sensitive data. |
+| 🛡️ **Intelligent Safety System** | A robust, two-tiered flagging mechanism combines keyword detection with AI-powered severity scoring for responsible crisis management.   |
+| 📚 **Grounded Responses (RAG)** | AI responses are grounded in a curated knowledge base of therapeutic concepts, ensuring guidance is relevant and evidence-informed.      |
 
-1.  **Chat & Reasoning:** A powerful, large-scale model handles the core conversational tasks, providing nuanced and empathetic responses.
-2.  **Dashboard & JSON Generation:** A model known for its reliability with structured data (`deepseek-r1`) is used exclusively for generating the dashboard insights, ensuring robust JSON output.
-3.  **Classification & Analysis:** A smaller, faster model (`gemma-2`) is used for real-time tasks like severity scoring and dynamic prompt generation, ensuring these checks don't introduce latency.
+## System Architecture & Philosophy
 
-This distributed cognition approach ensures that the right tool is used for each specific task, leading to a more efficient and effective system.
+Mindmate is built on a philosophy of **Distributed Cognition**, employing a multi-model strategy to optimize performance, reliability, and cost-effectiveness.
+
+1.  **Chat & Reasoning (`google/gemma-3-27b-it`):** A powerful, large-scale model is dedicated to the core conversational tasks, providing nuanced and empathetic responses.
+2.  **Dashboard & Structured Data (`deepseek/deepseek-r1-0528`):** A model renowned for its reliability with structured data is used exclusively for generating the dashboard's JSON insights, ensuring robustness.
+3.  **Classification & Meta-Analysis (`google/gemma-2-9b-it`):** A smaller, faster model handles real-time tasks like severity scoring and dynamic prompt generation, ensuring these crucial checks occur without user-facing latency.
+
+This approach ensures that the right tool is used for each specific task, leading to a more efficient, intelligent, and effective system.
 
 ## Technology Stack
 
 * **Frontend:** Streamlit
 * **Backend:** Python
-* **Core Libraries:** `sentence-transformers`, `numpy`, `requests`
+* **Core Libraries:** `sentence-transformers`, `numpy`, `requests`, `plotly`
 * **LLM Orchestration:** OpenRouter API
-* **Models:** `gemma-3`, `deepseek-r1`, `gemma-2`
 
 ## Setup and Installation
 
@@ -45,7 +59,7 @@ To run this project locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/IncognitoQuack/Mindmate.git](https://github.com/IncognitoQuack/Mindmate.git)
+    git clone [https://github.com/your-username/Mindmate.git](https://github.com/your-username/Mindmate.git)
     cd Mindmate
     ```
 
@@ -69,20 +83,16 @@ To run this project locally, follow these steps:
 
 5.  **Run the application:**
     ```bash
-    streamlit run app.py
+    streamlit run final.py
     ```
-
-## Usage
-
-1.  Launch the application.
-2.  Enter your OpenRouter API keys in the sidebar.
-3.  Begin a conversation in the **Chat** tab.
-4.  After a few exchanges, navigate to the sidebar and click **Generate Dashboard Insights**.
-5.  Switch to the **Dashboard** tab to view the analysis of your session.
 
 ## Ethical Considerations & Disclaimer
 
 **Mindmate is an experimental proof-of-concept and is not a substitute for professional medical advice, diagnosis, or treatment.** It is not a licensed medical device or a healthcare provider. If you are in crisis or believe you may have a medical condition, please consult with a qualified healthcare professional immediately. The flagging system is designed as a safety net but should not be solely relied upon for crisis management.
+
+## Authors
+
+This project was crafted with care by **Team BinaryDuo**.
 
 ## License
 
