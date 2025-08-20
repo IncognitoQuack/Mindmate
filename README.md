@@ -59,7 +59,7 @@ To run this project locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/Mindmate.git](https://github.com/your-username/Mindmate.git)
+    git clone [https://github.com/IncognitoQuack/Mindmate.git](https://github.com/IncognitoQuack/Mindmate.git)
     cd Mindmate
     ```
 
@@ -83,7 +83,7 @@ To run this project locally, follow these steps:
 
 5.  **Run the application:**
     ```bash
-    streamlit run final.py
+    streamlit run main.py
     ```
 
 ## Ethical Considerations & Disclaimer
