@@ -15,12 +15,6 @@
 
 > **Note:** The live demo is hosted on a community cloud. Please allow a moment for the application to wake up if it's been idle.
 
-## Introduction
-
-In an era where accessible mental health support is crucial, Mindmate serves as an advanced prototype for an AI-powered companion. It is founded on the principle of empathetic listening, providing users with a non-judgmental counterpart for self-reflection. The system is architected not to replace professional therapy, but to act as a powerful supplementary tool. It empowers users to identify patterns in their thoughts, visualize their emotional journey, and learn about evidence-informed wellness concepts within a secure, intuitive, and highly responsive conversational interface.
-
----
-
 ## Problem Statement
 
 Mental health challenges among students and professionals are actively rising, yet access to timely, affordable, open, and inclusive support remains limited.  
@@ -29,6 +23,12 @@ Traditional counseling services are often constrained by high costs, limited ava
 At the same time, existing digital learning platforms lack integrated wellness features that can monitor emotional well-being daily, encourage positive habits, and provide real-time assistance.  
 
 There is a clear need for an accessible, secure, and empathetic digital companion that bridges this gap by offering personalized check-ins, actionable insights, and crisis-sensitive guidance, while ensuring user privacy is protected.
+
+---
+
+## Introduction
+
+In an era where accessible mental health support is crucial, Mindmate serves as an advanced prototype for an AI-powered companion. It is founded on the principle of empathetic listening, providing users with a non-judgmental counterpart for self-reflection. The system is architected not to replace professional therapy, but to act as a powerful supplementary tool. It empowers users to identify patterns in their thoughts, visualize their emotional journey, and learn about evidence-informed wellness concepts within a secure, intuitive, and highly responsive conversational interface.
 
 ---
 
