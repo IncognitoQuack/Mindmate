@@ -28,7 +28,7 @@ Traditional counseling services are often constrained by high costs, limited ava
 
 At the same time, existing digital learning platforms lack integrated wellness features that can monitor emotional well-being daily, encourage positive habits, and provide real-time assistance.  
 
-There is a clear need for an accessible, secure, and empathetic digital companion that bridges this gap by offering personalized check-ins, actionable insights, and crisis-sensitive guidance—while ensuring user privacy is protected.
+There is a clear need for an accessible, secure, and empathetic digital companion that bridges this gap by offering personalized check-ins, actionable insights, and crisis-sensitive guidance, while ensuring user privacy is protected.
 
 ---
 
