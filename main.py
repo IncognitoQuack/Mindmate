@@ -1,4 +1,4 @@
-# main.py 
+# main.py - Professional Enhanced Version with Light Theme
 import streamlit as st
 import os
 import json
@@ -16,6 +16,10 @@ import plotly.express as px
 import logging
 from functools import lru_cache
 import time
+
+# Import our new UI components
+from ui_components import LightThemeUI, AnimationEffects, create_card, create_metric_row, show_toast
+from community_features import render_community_tab
 
 # --- Load Environment Variables ---
 load_dotenv()
@@ -36,273 +40,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Professional Clean UI Styling ---
-st.markdown("""
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    :root {
-        --primary-color: #7f9cf5;
-        --secondary-color: #a78bfa;
-        --success-color: #2DCE89;
-        --warning-color: #FB6340;
-        --info-color: #38bdf8;
-        --dark-bg: #181c27;
-        --light-bg: #23283b;
-        --card-bg: #23283b;
-        --text-primary: #f7fafc;
-        --text-secondary: #b5b9c9;
-        --border-color: #2d334d;
-        --shadow-sm: 0 2px 4px rgba(0,0,0,0.12);
-        --shadow-md: 0 4px 12px rgba(0,0,0,0.18);
-        --shadow-lg: 0 10px 24px rgba(0,0,0,0.22);
-    }
-    .stApp {
-        background: linear-gradient(180deg, #181c27 0%, #23283b 100%);
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        color: var(--text-primary);
-    }
-    #MainMenu, footer, header {visibility: hidden;}
-    .main-header {
-        background: var(--card-bg);
-        padding: 2rem 3rem;
-        border-radius: 16px;
-        margin-bottom: 2rem;
-        box-shadow: var(--shadow-md);
-        border-left: 4px solid var(--primary-color);
-    }
-    .main-header h1 {
-        color: var(--primary-color);
-        font-size: 2rem;
-        font-weight: 700;
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-    }
-    .main-header p {
-        color: var(--text-secondary);
-        font-size: 1rem;
-        margin-top: 0.5rem;
-        margin-bottom: 0;
-    }
-    .clean-card {
-        background: var(--card-bg);
-        border-radius: 12px;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-        color: var(--text-primary);
-    }
-    .clean-card:hover {
-        box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
-    }
-    .stChatMessage {
-        background: var(--card-bg);
-        border-radius: 12px;
-        padding: 1.25rem;
-        margin-bottom: 1rem;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid var(--border-color);
-        color: var(--text-primary);
-    }
-    .stChatMessage[data-testid="user-message"] {
-        background: linear-gradient(135deg, #23283b 0%, #181c27 100%);
-        border-left: 3px solid var(--primary-color);
-    }
-    .stChatMessage[data-testid="assistant-message"] {
-        background: var(--card-bg);
-        border-left: 3px solid var(--secondary-color);
-    }
-    .css-1d391kg, [data-testid="stSidebar"] {
-        background: var(--card-bg);
-        box-shadow: 2px 0 10px rgba(0,0,0,0.12);
-        color: var(--text-primary);
-    }
-    .css-1d391kg .block-container {
-        padding: 2rem 1rem;
-    }
-    .stButton > button {
-        background: var(--primary-color);
-        color: #181c27;
-        border: none;
-        padding: 0.625rem 1.5rem;
-        border-radius: 8px;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: all 0.2s ease;
-        box-shadow: var(--shadow-sm);
-        font-family: 'Inter', sans-serif;
-        width: 100%;
-        cursor: pointer;
-    }
-    .stButton > button:hover {
-        background: #5a67d8;
-        color: #fff;
-        box-shadow: var(--shadow-md);
-        transform: translateY(-1px);
-    }
-    .secondary-button > button {
-        background: transparent;
-        color: var(--primary-color);
-        border: 1px solid var(--primary-color);
-    }
-    .secondary-button > button:hover {
-        background: var(--primary-color);
-        color: #181c27;
-    }
-    .stTabs [data-baseweb="tab-list"] {
-        background: var(--card-bg);
-        padding: 0.5rem;
-        border-radius: 10px;
-        gap: 0.5rem;
-        border: 1px solid var(--border-color);
-    }
-    .stTabs [data-baseweb="tab"] {
-        background: transparent;
-        color: var(--text-secondary);
-        border-radius: 6px;
-        padding: 0.75rem 1.5rem;
-        font-weight: 500;
-        font-size: 0.95rem;
-        border: none;
-    }
-    .stTabs [aria-selected="true"] {
-        background: var(--primary-color);
-        color: #181c27;
-    }
-    .stTextInput > div > div > input,
-    .stTextArea > div > div > textarea {
-        background: #181c27;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 0.75rem;
-        font-size: 0.95rem;
-        color: var(--text-primary);
-        transition: all 0.2s ease;
-    }
-    .stTextInput > div > div > input:focus,
-    .stTextArea > div > div > textarea:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(127, 156, 245, 0.18);
-    }
-    .metric-card {
-        background: var(--card-bg);
-        border-radius: 12px;
-        padding: 1.5rem;
-        text-align: center;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid var(--border-color);
-        height: 100%;
-        color: var(--text-primary);
-    }
-    .metric-value {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin: 0.5rem 0;
-    }
-    .metric-label {
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-weight: 600;
-    }
-    .stAlert {
-        background: var(--card-bg);
-        border-radius: 8px;
-        border-left: 4px solid var(--info-color);
-        box-shadow: var(--shadow-sm);
-        color: var(--text-primary);
-    }
-    .stSuccess {
-        border-left-color: var(--success-color);
-        background: #1e2e26;
-        color: var(--success-color);
-    }
-    .stWarning {
-        border-left-color: var(--warning-color);
-        background: #3a2323;
-        color: var(--warning-color);
-    }
-    .info-box {
-        background: linear-gradient(135deg, #23283b 0%, #181c27 100%);
-        border-radius: 10px;
-        padding: 1rem;
-        margin: 1rem 0;
-        border-left: 3px solid var(--info-color);
-        color: var(--text-primary);
-    }
-    .stChatInput {
-        background: var(--card-bg);
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        padding: 0.5rem;
-        color: var(--text-primary);
-    }
-    .streamlit-expanderHeader {
-        background: var(--card-bg);
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-        font-weight: 500;
-        color: var(--text-primary);
-    }
-    .dashboard-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
-    .section-header {
-        color: var(--primary-color);
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin: 2rem 0 1rem 0;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--border-color);
-    }
-    .status-badge {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-    .status-active {
-        background: #23283b;
-        color: #7f9cf5;
-        border: 1px solid #7f9cf5;
-    }
-    .status-warning {
-        background: #3a2323;
-        color: #FB6340;
-        border: 1px solid #FB6340;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-in {
-        animation: fadeIn 0.3s ease-out;
-    }
-    ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-        background: var(--dark-bg);
-    }
-    ::-webkit-scrollbar-thumb {
-        background: var(--border-color);
-        border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--primary-color);
-    }
-</style>
-""", unsafe_allow_html=True)
+# --- Apply Light Theme ---
+ui = LightThemeUI()
+ui.inject_custom_css()
 
 # --- System Configuration (Original Models) ---
 class Config:
@@ -340,6 +80,14 @@ class SecureSessionManager:
             st.session_state.api_call_count = 0
         if "current_api_key_index" not in st.session_state:
             st.session_state.current_api_key_index = 0
+        if "mood_history" not in st.session_state:
+            st.session_state.mood_history = []
+        if "achievements" not in st.session_state:
+            st.session_state.achievements = []
+        if "daily_streak" not in st.session_state:
+            st.session_state.daily_streak = 0
+        if "total_sessions" not in st.session_state:
+            st.session_state.total_sessions = 1
             
         # Secure API key initialization (never expose actual keys)
         if "_api_keys_set" not in st.session_state:
@@ -536,7 +284,10 @@ def get_severity_score(prompt: str) -> int:
         response = call_ai_api(messages, model=Config.API_MODEL_CLASSIFY)
         match = re.search(r'\d+', response)
         if match:
-            return min(10, max(1, int(match.group())))
+            score = min(10, max(1, int(match.group())))
+            # Track mood history
+            st.session_state.mood_history.append(score)
+            return score
     except (ValueError, AttributeError) as e:
         logger.error(f"Severity scoring error: {e}")
     
@@ -646,6 +397,12 @@ def calculate_session_metrics() -> Dict:
     else:
         metrics['avg_message_length'] = 0
     
+    # Mood average
+    if st.session_state.mood_history:
+        metrics['avg_mood'] = sum(st.session_state.mood_history) / len(st.session_state.mood_history)
+    else:
+        metrics['avg_mood'] = 5.0
+    
     return metrics
 
 def generate_session_insights(journal: str, messages: List[Dict]) -> Dict:
@@ -705,136 +462,106 @@ def generate_session_insights(journal: str, messages: List[Dict]) -> Dict:
         ]
     }
 
-def create_mood_chart(messages: List[Dict]) -> go.Figure:
-    """Create mood progression chart from actual conversation"""
-    if not messages:
-        return go.Figure()
+def check_achievements():
+    """Check and unlock achievements"""
+    achievements = []
     
-    # Analyze sentiment progression through messages
-    mood_scores = []
-    timestamps = []
+    # First conversation
+    if len(st.session_state.messages) >= 2:
+        achievements.append({
+            'id': 'first_chat',
+            'title': 'First Steps',
+            'description': 'Started your wellness journey',
+            'icon': '🌱'
+        })
     
-    for i, msg in enumerate(messages):
-        if msg['role'] == 'user':
-            # Simple sentiment scoring based on keywords
-            content_lower = msg['content'].lower()
-            score = 5  # Neutral default
-            
-            # Positive indicators
-            if any(word in content_lower for word in ['better', 'good', 'happy', 'great', 'improved']):
-                score += 2
-            # Negative indicators
-            if any(word in content_lower for word in ['sad', 'anxious', 'worried', 'stressed', 'bad']):
-                score -= 2
-            
-            score = max(1, min(10, score))  # Keep between 1-10
-            mood_scores.append(score)
-            timestamps.append(f"Message {i//2 + 1}")
+    # Regular user
+    if st.session_state.total_sessions >= 5:
+        achievements.append({
+            'id': 'regular_user',
+            'title': 'Committed',
+            'description': 'Completed 5 sessions',
+            'icon': '⭐'
+        })
     
-    if not mood_scores:
-        mood_scores = [5]
-        timestamps = ["Start"]
+    # Long conversation
+    if len(st.session_state.messages) >= 20:
+        achievements.append({
+            'id': 'deep_talk',
+            'title': 'Deep Conversation',
+            'description': 'Engaged in meaningful dialogue',
+            'icon': '💬'
+        })
     
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=timestamps,
-        y=mood_scores,
-        mode='lines+markers',
-        name='Mood',
-        line=dict(color='#5E72E4', width=3),
-        marker=dict(size=8, color='#5E72E4'),
-        fill='tozeroy',
-        fillcolor='rgba(94, 114, 228, 0.1)'
-    ))
-    
-    fig.update_layout(
-        title="Emotional Journey",
-        xaxis_title="Conversation Progress",
-        yaxis_title="Mood Level",
-        yaxis=dict(range=[0, 10]),
-        template="plotly_white",
-        height=300,
-        margin=dict(l=0, r=0, t=40, b=0),
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)'
-    )
-    
-    return fig
+    # Check for new achievements
+    for achievement in achievements:
+        if achievement['id'] not in [a['id'] for a in st.session_state.achievements]:
+            st.session_state.achievements.append(achievement)
+            show_toast(f"🎉 Achievement Unlocked: {achievement['title']}", "success")
+            AnimationEffects.celebration_effect()
 
 # --- UI Components ---
 def render_header():
-    """Render clean professional header"""
-    st.markdown("""
-    <div class="main-header animate-in">
-        <h1>🧠 Mindmate AI</h1>
-        <p>Your trusted mental health companion - Here to listen and support</p>
-    </div>
-    """, unsafe_allow_html=True)
+    """Render animated header with light theme"""
+    st.markdown(ui.render_animated_header(
+        "🧠 Mindmate AI",
+        "Your trusted mental health companion - Here to listen and support"
+    ), unsafe_allow_html=True)
 
 def render_chat_view():
-    """Render chat interface"""
+    """Render chat interface with light theme"""
     if not st.session_state.messages:
-        st.markdown("""
-        <div class="info-box">
-            <p>👋 <strong>Welcome to Mindmate!</strong></p>
-            <p>I'm here to listen and support you. Feel free to share what's on your mind.</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(ui.render_welcome_animation(), unsafe_allow_html=True)
+        st.markdown(ui.render_info_card(
+            "Welcome to Mindmate!",
+            "I'm here to listen and support you. Feel free to share what's on your mind. Your conversation is private and secure.",
+            "👋"
+        ), unsafe_allow_html=True)
     
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
 def render_dashboard():
-    """Render analytics dashboard with real data"""
-    st.markdown('<h2 class="section-header">📊 Session Analytics</h2>', unsafe_allow_html=True)
+    """Render analytics dashboard with light theme"""
+    st.markdown('<h2 class="gradient-text" style="font-size: 1.75rem;">📊 Session Analytics</h2>', unsafe_allow_html=True)
     
     # Calculate real metrics
     metrics = calculate_session_metrics()
     
     # Display metrics in grid
-    col1, col2, col3, col4 = st.columns(4)
+    create_metric_row([
+        {'label': 'Messages', 'value': str(metrics['total_messages']), 'icon': '💬'},
+        {'label': 'Duration', 'value': metrics['session_duration'], 'icon': '⏱️'},
+        {'label': 'Mood Average', 'value': f"{metrics['avg_mood']:.1f}/10", 'icon': '😊'},
+        {'label': 'Streak', 'value': f"{st.session_state.daily_streak} days", 'icon': '🔥'}
+    ])
     
-    with col1:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Messages</div>
-            <div class="metric-value">{metrics['total_messages']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col2:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Duration</div>
-            <div class="metric-value">{metrics['session_duration']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col3:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">API Calls</div>
-            <div class="metric-value">{metrics['api_calls']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col4:
-        st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Avg Length</div>
-            <div class="metric-value">{metrics['avg_message_length']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    # Mood chart
-    if st.session_state.messages:
-        st.markdown('<h3 class="section-header">Emotional Journey</h3>', unsafe_allow_html=True)
-        fig = create_mood_chart(st.session_state.messages)
+    # Mood chart with light theme
+    if st.session_state.mood_history:
+        st.markdown('<h3 class="gradient-text" style="margin-top: 2rem;">Emotional Journey</h3>', unsafe_allow_html=True)
+        labels = [f"Message {i+1}" for i in range(len(st.session_state.mood_history))]
+        fig = ui.create_mood_gradient_chart(st.session_state.mood_history, labels)
         st.plotly_chart(fig, use_container_width=True)
     
-    # Generate insights
-    if st.button("🔍 Generate Session Insights", key="generate_insights"):
+    # Achievements section
+    st.markdown('<h3 class="gradient-text" style="margin-top: 2rem;">🏆 Achievements</h3>', unsafe_allow_html=True)
+    
+    if st.session_state.achievements:
+        cols = st.columns(3)
+        for idx, achievement in enumerate(st.session_state.achievements[:6]):
+            with cols[idx % 3]:
+                st.markdown(ui.render_achievement_card(
+                    achievement['title'],
+                    achievement['description'],
+                    achievement['icon'],
+                    True
+                ), unsafe_allow_html=True)
+    else:
+        st.info("Start chatting to unlock achievements! 🎯")
+    
+    # Generate insights button
+    if st.button("🔍 Generate Session Insights", key="generate_insights", use_container_width=True):
         with st.spinner("Analyzing your session..."):
             insights = generate_session_insights(
                 st.session_state.session_journal,
@@ -849,57 +576,83 @@ def render_dashboard():
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("""
-            <div class="clean-card">
-                <h4>Overall Sentiment</h4>
-            </div>
-            """, unsafe_allow_html=True)
-            st.info(insights.get('sentiment', 'Analyzing...'))
+            st.markdown(create_card(
+                f"<div style='text-align: center;'><h4 class='gradient-text'>Overall Sentiment</h4><p style='font-size: 1.2rem; margin-top: 1rem;'>{insights.get('sentiment', 'Analyzing...')}</p></div>",
+                ""
+            ), unsafe_allow_html=True)
         
         with col2:
-            st.markdown("""
-            <div class="clean-card">
-                <h4>Key Themes</h4>
-            </div>
-            """, unsafe_allow_html=True)
-            themes = insights.get('themes', [])
-            if themes:
-                for theme in themes:
-                    st.write(f"• {theme}")
+            themes_html = "<h4 class='gradient-text'>Key Themes</h4><ul style='margin-top: 1rem;'>"
+            for theme in insights.get('themes', []):
+                themes_html += f"<li style='margin: 0.5rem 0;'>{theme}</li>"
+            themes_html += "</ul>"
+            st.markdown(create_card(themes_html, ""), unsafe_allow_html=True)
         
-        st.markdown("""
-        <div class="clean-card">
-            <h4>Personalized Recommendations</h4>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<h4 class="gradient-text" style="margin-top: 1.5rem;">💡 Personalized Recommendations</h4>', unsafe_allow_html=True)
         
-        recommendations = insights.get('recommendations', [])
-        for rec in recommendations:
+        for rec in insights.get('recommendations', []):
             if isinstance(rec, dict):
-                st.success(f"💡 **{rec.get('suggestion', '')}**")
-                st.caption(rec.get('reason', ''))
+                st.markdown(ui.render_info_card(
+                    rec.get('suggestion', ''),
+                    rec.get('reason', ''),
+                    '💡'
+                ), unsafe_allow_html=True)
+
+def render_wellness_activities():
+    """Render wellness activities and mini-games"""
+    st.markdown('<h2 class="gradient-text" style="font-size: 1.75rem;">🎯 Wellness Activities</h2>', unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown(create_card("""
+            <h3>🧘 Breathing Exercise</h3>
+            <p>Take a moment to relax with guided breathing</p>
+        """), unsafe_allow_html=True)
+        
+        if st.button("Start Breathing Exercise", key="breathing", use_container_width=True):
+            placeholder = st.empty()
+            for phase, duration in [("Inhale... 🫁", 4), ("Hold... ⏸️", 7), ("Exhale... 💨", 8)]:
+                for i in range(duration):
+                    placeholder.markdown(f"""
+                        <div style='text-align: center; padding: 2rem;'>
+                            <h2>{phase}</h2>
+                            {ui.render_progress_bar((i+1)/duration * 100)}
+                        </div>
+                    """, unsafe_allow_html=True)
+                    time.sleep(1)
+            placeholder.markdown(ui.render_info_card("Great job!", "You've completed the breathing exercise", "✅"), unsafe_allow_html=True)
+            AnimationEffects.success_animation()
+    
+    with col2:
+        st.markdown(create_card("""
+            <h3>📝 Gratitude Journal</h3>
+            <p>Write three things you're grateful for today</p>
+        """), unsafe_allow_html=True)
+        
+        gratitude_input = st.text_area("What are you grateful for?", height=100, key="gratitude")
+        if st.button("Save Entry", key="save_gratitude", use_container_width=True):
+            if gratitude_input:
+                show_toast("Gratitude entry saved! Keep up the positive thinking! 🌟", "success")
+                st.session_state.daily_streak += 1
+                check_achievements()
 
 def render_sidebar():
-    """Render sidebar with secure API key management"""
+    """Render sidebar with light theme"""
     with st.sidebar:
         st.markdown("### ⚙️ Configuration")
         
-        # API Key Status (show status without revealing keys)
+        # API Key Status with light theme
         if SecureSessionManager.has_valid_keys():
             st.success("✅ API Keys Configured")
-            st.markdown("""
-            <div class="status-badge status-active">
-                Active
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(ui.render_status_badge("Active", "active"), unsafe_allow_html=True)
         else:
             st.warning("⚠️ API Keys Required")
         
-        # API Key Input (secure - never show existing keys)
+        # API Key Input (secure)
         with st.expander("🔐 API Key Settings"):
             st.info("Enter your API keys. Keys are encrypted and never displayed.")
             
-            # Primary API Key
             new_primary_key = st.text_input(
                 "Primary API Key",
                 type="password",
@@ -908,7 +661,6 @@ def render_sidebar():
                 help="Your primary API key"
             )
             
-            # Dashboard/Secondary API Key for rate limit management
             new_dashboard_key = st.text_input(
                 "Secondary API Key (Optional)",
                 type="password",
@@ -917,10 +669,10 @@ def render_sidebar():
                 help="Secondary key for higher rate limits"
             )
             
-            if st.button("Update API Keys", key="update_keys"):
+            if st.button("Update API Keys", key="update_keys", use_container_width=True):
                 if new_primary_key:
                     SecureSessionManager.set_api_keys(new_primary_key, new_dashboard_key)
-                    st.success("✅ API keys updated securely")
+                    show_toast("✅ API keys updated securely", "success")
                     st.rerun()
                 else:
                     st.error("Primary API key is required")
@@ -930,31 +682,53 @@ def render_sidebar():
         
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("🔄 New Session", key="clear_chat"):
+            if st.button("🔄 New Session", key="clear_chat", use_container_width=True):
                 st.session_state.messages = []
                 st.session_state.session_journal = f"Session started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
                 st.session_state.dynamic_directive = ""
                 st.session_state.severity_warning_shown = False
                 st.session_state.session_start_time = datetime.now()
                 st.session_state.api_call_count = 0
+                st.session_state.mood_history = []
+                st.session_state.total_sessions += 1
                 if 'dashboard_insights' in st.session_state:
                     del st.session_state['dashboard_insights']
                 st.rerun()
         
         with col2:
-            if st.button("💾 Export", key="export_chat"):
+            if st.button("💾 Export", key="export_chat", use_container_width=True):
                 if st.session_state.messages:
                     chat_export = {
                         'session_date': datetime.now().isoformat(),
                         'messages': st.session_state.messages,
-                        'metrics': calculate_session_metrics()
+                        'metrics': calculate_session_metrics(),
+                        'achievements': st.session_state.achievements
                     }
                     st.download_button(
                         label="Download JSON",
                         data=json.dumps(chat_export, indent=2),
                         file_name=f"mindmate_session_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-                        mime="application/json"
+                        mime="application/json",
+                        use_container_width=True
                     )
+        
+        # Quick Stats
+        st.markdown("### 📈 Quick Stats")
+        metrics = calculate_session_metrics()
+        st.markdown(f"""
+        <div class="clean-card" style="text-align: center;">
+            <div style="display: flex; justify-content: space-around; align-items: center;">
+                <div>
+                    <div class="metric-value" style="font-size: 1.5rem;">{metrics['total_messages']}</div>
+                    <div class="metric-label">Messages</div>
+                </div>
+                <div>
+                    <div class="metric-value" style="font-size: 1.5rem;">{st.session_state.daily_streak}</div>
+                    <div class="metric-label">Day Streak</div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
         
         # Resources
         st.markdown("### 🆘 Crisis Resources")
@@ -975,7 +749,7 @@ def main():
     # Initialize secure session
     SecureSessionManager.initialize_session()
     
-    # Load environment variables securely (only on first run)
+    # Load environment variables securely
     if not SecureSessionManager.has_valid_keys():
         env_primary = os.getenv("OPENROUTER_API_KEY")
         env_dashboard = os.getenv("OPENROUTER_API_KEY_DASHBOARD")
@@ -989,14 +763,14 @@ def main():
     # Render UI
     render_header()
     
-    # Main tabs
-    tab1, tab2, tab3 = st.tabs(["💬 Chat", "📊 Dashboard", "📝 Journal"])
+    # Main tabs with icons
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["💬 Chat", "📊 Dashboard", "🎯 Wellness", "📝 Journal", "🤝 Community"])
     
     with tab1:
         render_chat_view()
         
         # Chat input
-        if prompt := st.chat_input("What's on your mind?"):
+        if prompt := st.chat_input("What's on your mind today? 💭"):
             if not SecureSessionManager.has_valid_keys():
                 st.error("⚠️ Please configure your API keys in the sidebar first.")
                 st.stop()
@@ -1015,7 +789,7 @@ def main():
             severity_score = get_severity_score(prompt)
             if severity_score >= 8 and not st.session_state.severity_warning_shown:
                 st.session_state.severity_warning_shown = True
-                st.warning("I notice you're going through something difficult. Remember that professional support is available if you need it.")
+                st.warning("I notice you're going through something difficult. Remember that professional support is available if you need it. 💙")
             
             # Get relevant knowledge
             with st.spinner("Thinking..."):
@@ -1045,6 +819,9 @@ def main():
                 
                 # Update dynamic directive
                 st.session_state.dynamic_directive = get_prompt_improvement_suggestion(st.session_state.messages)
+                
+                # Check achievements
+                check_achievements()
             
             st.rerun()
     
@@ -1052,9 +829,12 @@ def main():
         render_dashboard()
     
     with tab3:
-        st.markdown('<h2 class="section-header">📝 Session Journal</h2>', unsafe_allow_html=True)
+        render_wellness_activities()
+    
+    with tab4:
+        st.markdown('<h2 class="gradient-text" style="font-size: 1.75rem;">📝 Session Journal</h2>', unsafe_allow_html=True)
         
-        # Display journal
+        # Display journal with light theme
         st.text_area(
             "Session Transcript",
             value=st.session_state.session_journal,
@@ -1064,24 +844,37 @@ def main():
         )
         
         # Export journal
-        if st.button("📥 Export Journal"):
-            st.download_button(
-                label="Download Journal",
-                data=st.session_state.session_journal,
-                file_name=f"mindmate_journal_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
-                mime="text/plain"
-            )
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("📥 Export Journal", use_container_width=True):
+                st.download_button(
+                    label="Download Journal",
+                    data=st.session_state.session_journal,
+                    file_name=f"mindmate_journal_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                    mime="text/plain",
+                    use_container_width=True
+                )
+        with col2:
+            if st.button("📧 Email to Self", use_container_width=True):
+                show_toast("Email feature coming soon!", "info")
     
+    with tab5:
+        render_community_tab()
+
     # Render sidebar
     render_sidebar()
 
-    # Watermark
+    # Footer with animation
     st.markdown("""
-    <div style="position:fixed; bottom:10px; left:0; width:100%; text-align:center; color:#7f9cf5; opacity:0.6; font-size:0.95rem; z-index:9999;">
-        Crafted with care by <b>Team BinaryDuo</b>
+    <div style="margin-top: 3rem; padding: 2rem; text-align: center; border-top: 1px solid var(--border-color);">
+        <p class="gradient-text" style="font-size: 1rem; font-weight: 600;">
+            Crafted with care by <b>Team BinaryDuo</b> 💜
+        </p>
+        <p style="color: var(--text-tertiary); font-size: 0.875rem; margin-top: 0.5rem;">
+            Your mental health matters • Available 24/7 • Always here to listen
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
-
